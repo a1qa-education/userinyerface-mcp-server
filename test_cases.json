@@ -1,0 +1,81 @@
+{
+  "test_cases": [
+    {
+      "id": "TC1",
+      "title": "Cards",
+      "host": "https://userinyerface.com",
+      "preconditions": "Open the main page",
+      "steps": [
+        {
+          "step": 1,
+          "action": "",
+          "expected_result": "Welcome page is open"
+        },
+        {
+          "step": 2,
+          "action": "Click the link in the text 'Please click HERE to GO'",
+          "expected_result": "Sign Up card is open"
+        },
+        {
+          "step": 3,
+          "action": "Input a random valid password, email, domain, accept the terms of use and click Next button",
+          "expected_result": "Interests card is open"
+        },
+        {
+          "step": 4,
+          "action": "Choose 3 random interests, upload an image, and click Next button",
+          "expected_result": "Personal Details card is open"
+        }
+      ]
+    },
+    {
+      "id": "TC2",
+      "title": "Help Form",
+      "host": "https://userinyerface.com",
+      "preconditions": "Open the main page",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Click the link in the text 'Please click HERE to GO'",
+          "expected_result": ""
+        },
+        {
+          "step": 2,
+          "action": "Hide the help form",
+          "expected_result": "The help form is hidden"
+        }
+      ]
+    },
+    {
+      "id": "TC3",
+      "title": "Cookies Form",
+      "host": "https://userinyerface.com",
+      "preconditions": "Open the main page",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Click the link in the text 'Please click HERE to GO'",
+          "expected_result": ""
+        },
+        {
+          "step": 2,
+          "action": "Accept cookies",
+          "expected_result": "The cookies form is hidden"
+        }
+      ]
+    },
+    {
+      "id": "TC4",
+      "title": "Timer",
+      "host": "https://userinyerface.com",
+      "preconditions": "Open the main page",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Click the link in the text 'Please click HERE to GO'",
+          "expected_result": "The timer starts from \"00:00:00\""
+        }
+      ]
+    }
+  ]
+}
