@@ -2,78 +2,126 @@
   "test_cases": [
     {
       "id": "TC1",
-      "title": "Cards",
-      "host": "https://userinyerface.com",
-      "preconditions": "Open the main page",
+      "title": "Registration - Card 1 Password Policy Compliance",
+      "epic": "User Inyerface Registration",
+      "feature": "Card 1 - Credentials",
+      "story": "Password policy",
+      "severity": "critical",
+      "host": "https://userinyerface.com/game.html",
+      "preconditions": "Game page is opened in a fresh browser session; Card 1 is displayed (page indicator shows '1 / 4')",
+      "test_data": {
+        "password": "ZXCVB12345",
+        "email_name": "aqauser",
+        "email_domain": "example",
+        "email_extension": ".com"
+      },
       "steps": [
         {
           "step": 1,
-          "action": "",
-          "expected_result": "Welcome page is open"
+          "action": "Enter the password from test data. Password policy: at least 10 characters, at least 1 uppercase letter, at least 1 numeral",
+          "expected_result": "Password field contains the entered value"
         },
         {
           "step": 2,
-          "action": "Click the link in the text 'Please click HERE to GO'",
-          "expected_result": "Sign Up card is open"
+          "action": "Enter email name and email domain from test data, select the email extension from the dropdown",
+          "expected_result": "Email name and domain fields are populated; selected extension is displayed in the dropdown"
         },
         {
           "step": 3,
-          "action": "Input a random valid password, email, domain, accept the terms of use and click Next button",
-          "expected_result": "Interests card is open"
+          "action": "Accept Terms & Conditions by unchecking the 'I do not accept the Terms & Conditions' checkbox (checked by default)",
+          "expected_result": "Checkbox is unchecked; no Terms & Conditions error is displayed"
         },
         {
           "step": 4,
-          "action": "Choose 3 random interests, upload an image, and click Next button",
-          "expected_result": "Personal Details card is open"
+          "action": "Click the 'Next' link",
+          "expected_result": "Card 2 (avatar and interests) is opened; page indicator shows '2 / 4'"
         }
       ]
     },
     {
       "id": "TC2",
-      "title": "Help Form",
-      "host": "https://userinyerface.com",
-      "preconditions": "Open the main page",
+      "title": "Registration - Card 1 Email Domain Extensions",
+      "epic": "User Inyerface Registration",
+      "feature": "Card 1 - Credentials",
+      "story": "Email domain extension",
+      "severity": "normal",
+      "host": "https://userinyerface.com/game.html",
+      "preconditions": "Game page is opened in a fresh browser session; Card 1 is displayed (page indicator shows '1 / 4')",
+      "test_data": {
+        "password": "Aqauser12345",
+        "email_name": "aqauser",
+        "email_domain": "example",
+        "email_extensions": [".org", ".co.uk", ".net", ".gov", ".de", ".fr", ".nl", ".com", ".be", ".jpg"]
+      },
       "steps": [
         {
           "step": 1,
-          "action": "Click the link in the text 'Please click HERE to GO'",
-          "expected_result": ""
+          "action": "Enter the password, email name and email domain from test data",
+          "expected_result": "Password, email name and domain fields are populated"
         },
         {
           "step": 2,
-          "action": "Hide the help form",
-          "expected_result": "The help form is hidden"
+          "action": "Select the current email extension from the test data list in the dropdown",
+          "expected_result": "Selected extension is displayed in the dropdown"
+        },
+        {
+          "step": 3,
+          "action": "Accept Terms & Conditions by unchecking the 'I do not accept the Terms & Conditions' checkbox (checked by default)",
+          "expected_result": "Checkbox is unchecked; no Terms & Conditions error is displayed"
+        },
+        {
+          "step": 4,
+          "action": "Click the 'Next' link",
+          "expected_result": "Card 2 is opened; page indicator shows '2 / 4'"
+        },
+        {
+          "step": 5,
+          "action": "Reload the game page and repeat steps 1-4 for every remaining extension in the test data list",
+          "expected_result": "Each of the 10 email extensions is accepted and Card 2 is opened every time"
         }
       ]
     },
     {
       "id": "TC3",
-      "title": "Cookies Form",
-      "host": "https://userinyerface.com",
-      "preconditions": "Open the main page",
+      "title": "Cookies Consent - Dismiss Cookies Banner",
+      "epic": "User Inyerface Legal",
+      "feature": "Cookies Policy",
+      "story": "Dismiss cookies banner",
+      "severity": "normal",
+      "host": "https://userinyerface.com/game.html",
+      "preconditions": "Game page is opened in a fresh browser session",
       "steps": [
         {
           "step": 1,
-          "action": "Click the link in the text 'Please click HERE to GO'",
-          "expected_result": ""
+          "action": "Wait for the cookies banner to appear at the top of the page",
+          "expected_result": "Banner 'This site uses cookies, is that a problem for you?' is displayed shortly after page load with 'Not really, no' and 'Yes' buttons"
         },
         {
           "step": 2,
-          "action": "Accept cookies",
-          "expected_result": "The cookies form is hidden"
+          "action": "Click the 'Not really, no' button",
+          "expected_result": "Cookies banner is closed and no longer displayed on the page"
         }
       ]
     },
     {
       "id": "TC4",
-      "title": "Timer",
-      "host": "https://userinyerface.com",
-      "preconditions": "Open the main page",
+      "title": "Game Session - Timer Start and Increment",
+      "epic": "User Inyerface Game Flow",
+      "feature": "Session Timer",
+      "story": "Timer initialization",
+      "severity": "critical",
+      "host": "https://userinyerface.com/game.html",
+      "preconditions": "Browser session is started; game page is not opened yet",
       "steps": [
         {
           "step": 1,
-          "action": "Click the link in the text 'Please click HERE to GO'",
-          "expected_result": "The timer starts from \"00:00:00\""
+          "action": "Open the game page",
+          "expected_result": "Timer is displayed in the page header and starts from 00:00:00 (format HH:MM:SS)"
+        },
+        {
+          "step": 2,
+          "action": "Observe the timer value for several seconds",
+          "expected_result": "Timer value increases by 1 second every second"
         }
       ]
     }

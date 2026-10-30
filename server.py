@@ -1,15 +1,9 @@
 """
 userinyerface-mcp-server
 
-A minimal MCP (Model Context Protocol) server that exposes the team's
-test cases for the userinyerface.com capstone project (Unit 4 - Allure
-& Reporting) as MCP tools.
-
-This is intentionally simple on purpose: two tools, one JSON data file.
-The point of this server, for students, is to demonstrate a realistic
-(if tiny) example of "test cases live in an external system, not in
-your repo" - the same shape as a real TestRail/Xray/Jira integration,
-just small enough to read end-to-end in one sitting.
+A minimal MCP (Model Context Protocol) server that exposes the test
+cases for the userinyerface.com project as MCP tools. The test cases
+are stored in test_cases.json.
 
 Run it directly for local testing:
     python server.py
